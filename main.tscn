@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://co1wyhoacl5x5"]
+
+[ext_resource type="PackedScene" uid="uid://cr2dn4in3ako6" path="res://ground.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dnyeakwwa581f" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b0qqum1a1qshk" path="res://game.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bvon1cot7tvmk" path="res://env.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bahdmmprm5qne" path="res://shock_sound.tscn" id="3_lquwl"]
+[ext_resource type="AudioStream" uid="uid://2ipi7vj7t56k" path="res://assets/sfx/electric-loop.ogg" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://b4ivadak74tog" path="res://assets/sfx/tadaa.ogg" id="7_272bh"]
+
+[node name="Main" type="Node" node_paths=PackedStringArray("win_sound")]
+script = ExtResource("1_h2yge")
+game_scene = ExtResource("2_1bvp3")
+shock_sound_scene = ExtResource("3_lquwl")
+win_sound = NodePath("AudioStreamPlayer")
+
+[node name="Ground" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Env" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9970982, -0.045602035, 0.060957484, -0.01869261, 0.6295573, 0.77672917, -0.07379667, -0.7756147, 0.62687796, 0, 0.63450086, 0.20062244)
+
+[node name="ElectricLoopSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0463543, 0, 0.19605792)
+stream = ExtResource("6_7mycd")
+volume_db = -17.548
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_272bh")

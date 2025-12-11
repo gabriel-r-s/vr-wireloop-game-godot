@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0qqum1a1qshk"]
+
+[ext_resource type="PackedScene" uid="uid://d1yrxti406uch" path="res://ring.tscn" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://b65eqsiiulkqe" path="res://wire.tscn" id="2_e2o6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2o6t"]
+size = Vector3(0.35812378, 0.10925293, 0.082977295)
+
+[node name="Game" type="Node"]
+
+[node name="Ring" parent="." instance=ExtResource("1_fc0e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004597543, 0.01, 0.0005803779)
+
+[node name="Wire" parent="." instance=ExtResource("2_e2o6t")]
+
+[node name="Win" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Win"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1493988, 0.50738525, 0.4962921)
+shape = SubResource("BoxShape3D_e2o6t")

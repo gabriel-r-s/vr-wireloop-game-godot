@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b65eqsiiulkqe"]
+
+[ext_resource type="Script" uid="uid://naamh572hpdk" path="res://addons/curvemesh3d/curvemesh3d.gd" id="1_u7o4o"]
+[ext_resource type="Material" uid="uid://15fvmerj1tor" path="res://assets/metal/metal.tres" id="2_xg6so"]
+[ext_resource type="Script" uid="uid://8h7d0o0l46dr" path="res://wire_init.gd" id="3_xg6so"]
+
+[sub_resource type="Curve3D" id="Curve3D_1g2ps"]
+bake_interval = 0.1
+_data = {
+"points": PackedVector3Array(0.6, 0.46, 0, 0, 0, 0, 0, 0, 0, -0.09981838, -0.047065735, -0.05724615, 0.09981838, 0.047065735, 0.05724615, 0, 1.0426592, 0, -0.23, 0, 0, 0, 0, 0, 1, 1, 0, -0.205, 0, 0, 0, 0, 0.12, 1.5, 1, 0, -0.09843254, 0.026401281, 0.028932989, 0.09843254, -0.026401281, -0.028932989, 2.0173838, 0.97655666, -0.5014032, -0.13772964, 0.09068501, 0.10737711, 0.13772964, -0.09068501, -0.10737711, 2.5, 0.5, -0.5, -0.08461428, 0.011279225, -0.029639125, 0.08461428, -0.011279225, 0.029639125, 3.5, 0.5, -0.5, -0.04600525, 0.07852173, -0.21021795, 0.04600525, -0.07852173, 0.21021795, 4.5, 0.5, 0.5, 0.1361351, -0.12237835, -0.111676455, -0.1361351, 0.12237835, 0.111676455, 4.5, 1, 1.5, 0.18544197, 0.010705233, 0.022577286, -0.18544197, -0.010705233, -0.022577286, 3.5, 1, 1.5, 0.20778799, -0.0154773, 0.056481272, -0.20778799, 0.0154773, -0.056481272, 1.5090117, 0.47477645, 0.48359436, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[sub_resource type="Curve" id="Curve_5yqev"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CurveMesh3D" type="Path3D"]
+curve = SubResource("Curve3D_1g2ps")
+script = ExtResource("1_u7o4o")
+radius = 0.02
+radius_profile = SubResource("Curve_5yqev")
+material = ExtResource("2_xg6so")
+metadata/_custom_type_script = "uid://naamh572hpdk"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_xg6so")

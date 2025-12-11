@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bahdmmprm5qne"]
+
+[ext_resource type="AudioStream" uid="uid://cem3v748cauvv" path="res://assets/sfx/shock1.ogg" id="1_1shy4"]
+[ext_resource type="AudioStream" uid="uid://doi62dsq7dpo8" path="res://assets/sfx/shock2.ogg" id="2_ht1xw"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qdoyc"]
+playback_mode = 1
+random_pitch = 1.2
+random_volume_offset_db = 0.5
+streams_count = 2
+stream_0/stream = ExtResource("1_1shy4")
+stream_1/stream = ExtResource("2_ht1xw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_qdoyc")
+autoplay = true
+
+[connection signal="finished" from="." to="." method="queue_free"]
